@@ -6,7 +6,7 @@ import controller.BalanceController;
 import controller.DebitController;
 import controller.WalletDTO;
 import model.exceptions.DuplicateRequestException;
-import model.exceptions.EmptyWalletException;
+import model.exceptions.WalletNotFoundException;
 import model.exceptions.InsufficientFundsException;
 import model.exceptions.MissingWalletException;
 import server.HttpRequest;
@@ -64,7 +64,7 @@ public class DebitRequestExecutor implements RequestExecutor {
             e.printStackTrace();
             headers.put("STATUS", "HTTP/1.1 500");
             return new HttpResponse(headers, "{\"message\":\"The request was processed with error\" }");//TODO add error response
-        } catch (EmptyWalletException e) {
+        } catch (WalletNotFoundException e) {
             headers.put("STATUS", "HTTP/1.1 404");
             return new HttpResponse(headers, "{\"message\":\"The request was processed with error\" }");//TODO add error response
         }

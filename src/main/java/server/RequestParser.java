@@ -9,13 +9,15 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import static server.HttpConstants.METHOD_HEADER_KEY;
+import static server.HttpConstants.URI_HEADER_KEY;
+
 public class RequestParser {
     private static final String CONTENT_LENGTH_HEADER = "Content-Length";
     private static final String HEADER_FIRST_LINE_SEPARATOR = " ";
     private static final String KEY_VALUE_HEADER_SEPARATOR = ":";
 
-    public static final String URI_HEADER_KEY = "URI";
-    public static final String METHOD_HEADER_KEY = "METHOD";
+
 
     public HttpRequest parseHttpRequest(Socket socket, ObjectMapper objectMapper) throws IOException, EmptyRequestException {
         BufferedReader inBufferReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));

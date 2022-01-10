@@ -1,6 +1,6 @@
 package controller;
 
-import model.exceptions.EmptyWalletException;
+import model.exceptions.WalletNotFoundException;
 import repository.WalletRepository;
 
 public class BalanceController {
@@ -11,8 +11,8 @@ public class BalanceController {
         this.walletRepository = walletRepository;
     }
 
-    public WalletDTO getAccountBalance(String clientId) throws EmptyWalletException {
-        return walletRepository.getWallet(clientId).orElseThrow(EmptyWalletException::new);
+    public WalletDTO getAccountBalance(String clientId) throws WalletNotFoundException {
+        return walletRepository.getWallet(clientId).orElseThrow(WalletNotFoundException::new);
     }
 
 }

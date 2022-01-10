@@ -4,13 +4,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.BalanceController;
 import controller.WalletDTO;
-import model.exceptions.EmptyWalletException;
+import lombok.extern.slf4j.Slf4j;
+import model.exceptions.WalletNotFoundException;
+import server.HttpConstants;
 import server.HttpRequest;
 import server.HttpResponse;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 public class BalanceRequestExecutor implements RequestExecutor {
 
     private final BalanceController balanceController;
@@ -23,20 +26,20 @@ public class BalanceRequestExecutor implements RequestExecutor {
 
     @Override
     public HttpResponse execute(HttpRequest httpRequest) {
-        String clientId = httpRequest.getHeaders().get("URI").split("/")[2];
+        String clientId = httpRequest.getHeaders().get(HttpConstants.URI_HEADER_KEY).split("/")[2];
         Map<String, String> headers = new HashMap<>();
         try {
             WalletDTO walletDTO = balanceController.getAccountBalance(clientId);
-            headers.put("STATUS", "HTTP/1.1 200 OK");
+            headers.put(HttpConstants.STATUS_HEADER_KEY, HttpConstants.STATUS_OK);
             String responseBody = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(walletDTO);
             return new HttpResponse(headers, responseBody);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            headers.put("STATUS", "HTTP/1.1 500");
-            return new HttpResponse(headers, "{\"message\":\"The request was processed with error\" }");//TODO add error response
-        } catch (EmptyWalletException e) {
-            headers.put("STATUS", "HTTP/1.1 404");
-            return new HttpResponse(headers, "{\"message\":\"The request was processed with error\" }");//TODO add error response
+            log.error("Error while json processing", e);
+            headers.put(HttpConstants.STATUS_HEADER_KEY, HttpConstants.STATUS_INTERNAL_SERVER_ERROR);
+            return new HttpResponse(headers, "{\"message\":\"The request was processed with error\" }");
+        } catch (WalletNotFoundException e) {
+            headers.put(HttpConstants.STATUS_HEADER_KEY, HttpConstants.STATUS_NOT_FOUND);
+            return new HttpResponse(headers, "{\"message\":\"The requested wallet was not found\" }");
         }
     }
 }
