@@ -27,19 +27,30 @@ public class RequestExecutorProxy {
     Map<Method,Map<String, RequestExecutor>> createRequestExecutorsMap() {
         requestExecutorMap = new HashMap<>();
         Map<String, RequestExecutor> getRequestMap = new HashMap<>();
-        getRequestMap.put(AvailableEndpoints.GET_WALLET_BALANCE, balanceRequestExecutor);
-        requestExecutorMap.put(Method.GET, getRequestMap);
+        setRequestExecutorsForGet(getRequestMap);
+        setRequestExecutorsForPost();
+        return requestExecutorMap;
+    }
+
+    private void setRequestExecutorsForPost() {
         Map<String, RequestExecutor> postRequestMap = new HashMap<>();
         postRequestMap.put(AvailableEndpoints.CREDIT_WALLET, creditRequestExecutor);
         postRequestMap.put(AvailableEndpoints.DEBIT_WALLET, debitRequestExecutor);
         requestExecutorMap.put(Method.POST, postRequestMap);
-        return requestExecutorMap;
+    }
+
+    private void setRequestExecutorsForGet(Map<String, RequestExecutor> getRequestMap) {
+        getRequestMap.put(AvailableEndpoints.GET_WALLET_BALANCE, balanceRequestExecutor);
+        requestExecutorMap.put(Method.GET, getRequestMap);
     }
 
 
     public HttpResponse executeRequest(Method method, String url, HttpRequest httpRequest) throws UnknownEndpointException {
         Map<String, RequestExecutor> executorsByMethod = requestExecutorMap.get(method);
-        Optional<RequestExecutor> requestExecutor =  executorsByMethod.entrySet().stream().filter(entry -> url.matches(entry.getKey())).map(Map.Entry::getValue).findFirst();
+        Optional<RequestExecutor> requestExecutor =  executorsByMethod.entrySet().stream()
+                .filter(entry -> url.matches(entry.getKey()))
+                .map(Map.Entry::getValue)
+                .findFirst();
         return requestExecutor.orElseThrow(UnknownEndpointException::new).execute(httpRequest);
     }
 }

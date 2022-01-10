@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.BalanceController;
 import controller.WalletDTO;
-import model.EmptyWalletException;
+import model.exceptions.EmptyWalletException;
 import server.HttpRequest;
 import server.HttpResponse;
 

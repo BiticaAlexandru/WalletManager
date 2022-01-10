@@ -1,6 +1,6 @@
 package controller;
 
-import model.EmptyWalletException;
+import model.exceptions.EmptyWalletException;
 import repository.WalletRepository;
 
 public class BalanceController {

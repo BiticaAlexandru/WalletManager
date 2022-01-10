@@ -12,12 +12,12 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.Map;
 
-public class Connection implements Runnable{
+public class Connection implements Runnable {
 
-    private Socket socket;
-    private ObjectMapper objectMapper;
-    private RequestParser requestParser;
-    private RequestExecutorProxy requestExecutorProxy;
+    private final Socket socket;
+    private final ObjectMapper objectMapper;
+    private final RequestParser requestParser;
+    private final RequestExecutorProxy requestExecutorProxy;
 
     public Connection(Socket socket, ObjectMapper objectMapper, RequestParser requestParser, RequestExecutorProxy requestExecutorProxy) {
         this.socket = socket;
@@ -33,19 +33,21 @@ public class Connection implements Runnable{
             HttpResponse httpResponse = executeRequest(httpRequest);
             sendHttpResponse(httpResponse);
         } catch(EmptyRequestException e) {
-            System.out.println("An empty request occurred");
+            System.out.println("An empty request occurred");//TODO handle
         }
         catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();//TODO handle
         }
     }
 
     private HttpResponse executeRequest(HttpRequest httpRequest) throws UnknownEndpointException {
-        Method method = Method.valueOf(httpRequest.getHeaders().get("METHOD"));
-        String url = httpRequest.getHeaders().get("URI");
+        Method method = Method.valueOf(httpRequest.getHeaders().get(RequestParser.METHOD_HEADER_KEY));
+        String url = httpRequest.getHeaders().get(RequestParser.URI_HEADER_KEY);
         return requestExecutorProxy.executeRequest(method, url, httpRequest);
     }
 
+
+    //TODO REWRITE
     private void sendHttpResponse(HttpResponse httpResponse) throws IOException {
         try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))){
             Map<String, String> headers = httpResponse.getHeaders();

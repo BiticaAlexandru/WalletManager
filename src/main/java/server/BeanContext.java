@@ -4,25 +4,58 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.BalanceController;
 import controller.CreditController;
 import controller.DebitController;
-import model.executors.*;
+import model.executors.BalanceRequestExecutor;
+import model.executors.CreditRequestExecutor;
+import model.executors.DebitRequestExecutor;
+import model.executors.RequestExecutorProxy;
 import repository.DatabaseWalletRepository;
 import repository.InMemoryWalletRepository;
 import repository.WalletRepository;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 public class BeanContext {
     private final static Map<Class, Object> beans = new HashMap<>();
+    private final static String DATABASE_PASSWORD = "postgres";
+    private final static String DATABASE_CONNECTION_URL = "jdbc:postgresql://localhost:5432/postgres";
+    private final static String PROPERTIES_PATH = "src\\main\\resources\\application.properties";
+    private final static String DATABASE_USER = "postgres";
+
+    public final static String PROFILE_PROPERTY = "profile";
+    public final static String OFFICIAL_PROFILE = "official";
+    public final static String IN_MEMORY_PROFILE = "memory";
 
     public void initializeInMemoryContext() {
         WalletRepository walletRepository = getInMemoryWalletRepository();
         getBalanceController(walletRepository);
     }
+
+    public Properties loadProperties() {
+        try (InputStream input = new FileInputStream(PROPERTIES_PATH)) {
+            Properties properties = new Properties();
+            properties.load(input);
+            beans.put(Properties.class, properties);
+        } catch (IOException e) {
+            e.printStackTrace();//TODO handle
+        }
+        return loadDefaultProperties();
+    }
+
+    private Properties loadDefaultProperties() {
+        Properties properties = new Properties();
+        properties.setProperty(PROFILE_PROPERTY, OFFICIAL_PROFILE);
+        return properties;
+    }
+
     public void initializeOfficialContext() {
         WalletRepository walletRepository = getDatabaseWalletRepository();
         getBalanceController(walletRepository);
@@ -82,7 +115,8 @@ public class BeanContext {
         } else {
             Driver postgreDriver = new org.postgresql.Driver();
             DriverManager.registerDriver(postgreDriver);
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "postgres");
+
+            Connection connection = DriverManager.getConnection(DATABASE_CONNECTION_URL, DATABASE_USER, DATABASE_PASSWORD);
             beans.put(java.sql.Connection.class, connection);
             return connection;
         }

@@ -2,6 +2,7 @@ package controller;
 
 import model.exceptions.DuplicateRequestException;
 import model.exceptions.WalletNotPersistedException;
+import repository.RepositoryConstants;
 import repository.WalletRepository;
 import server.Transaction;
 
@@ -14,7 +15,7 @@ public class CreditController {
     }
 
     public WalletDTO creditAccount(String clientId, Transaction transaction) throws WalletNotPersistedException, DuplicateRequestException {
-        String transactionId = walletRepository.getLastTransactionByWalletId(clientId).orElseGet(() -> "");
+        String transactionId = walletRepository.getLastTransactionByWalletId(clientId).orElseGet(() -> RepositoryConstants.EMPTY_TRANSACTION_ID);
         if(transactionId.isEmpty() || !transactionId.equalsIgnoreCase(transaction.getTransactionId())) {
             WalletDTO walletDTO = transactionId.isEmpty() ? walletRepository.createNewWallet(clientId) : walletRepository.getWallet(clientId).get();
             walletDTO.setTransactionId(transaction.getTransactionId());

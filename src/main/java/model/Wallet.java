@@ -1,7 +1,7 @@
 package model;
 
 public class Wallet {
-    private String id;
+    private final String id;
     private long version;
     private double balance;
 

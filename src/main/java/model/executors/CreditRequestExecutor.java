@@ -6,7 +6,7 @@ import controller.BalanceController;
 import controller.CreditController;
 import controller.WalletDTO;
 import model.exceptions.DuplicateRequestException;
-import model.EmptyWalletException;
+import model.exceptions.EmptyWalletException;
 import model.exceptions.WalletNotPersistedException;
 import server.HttpRequest;
 import server.HttpResponse;
