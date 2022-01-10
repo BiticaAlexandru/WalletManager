@@ -1,6 +1,7 @@
 package server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import model.Method;
 import model.exceptions.UnknownEndpointException;
 import model.executors.RequestExecutorProxy;
@@ -12,6 +13,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.Map;
 
+@Slf4j
 public class Connection implements Runnable {
 
     private final Socket socket;
@@ -33,10 +35,11 @@ public class Connection implements Runnable {
             HttpResponse httpResponse = executeRequest(httpRequest);
             sendHttpResponse(httpResponse);
         } catch(EmptyRequestException e) {
-            System.out.println("An empty request occurred");//TODO handle
-        }
-        catch (Exception e) {
-            e.printStackTrace();//TODO handle
+            log.info("An empty request occurred", e);
+        } catch (IOException e) {
+            log.error("Error during response sending", e);
+        } catch (UnknownEndpointException e) {
+            log.error("Undefined endpoint", e);
         }
     }
 
@@ -59,6 +62,7 @@ public class Connection implements Runnable {
             writer.flush();
         } catch (SocketException s) {
             socket.close();
+            log.error("Exception while sending response", s);
         }
     }
 }

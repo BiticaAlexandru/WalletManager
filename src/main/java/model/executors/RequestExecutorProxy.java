@@ -1,5 +1,6 @@
 package model.executors;
 
+import lombok.extern.slf4j.Slf4j;
 import model.Method;
 import model.exceptions.UnknownEndpointException;
 import server.AvailableEndpoints;
@@ -9,7 +10,7 @@ import server.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
+@Slf4j
 public class RequestExecutorProxy {
 
     private final BalanceRequestExecutor balanceRequestExecutor;
@@ -17,7 +18,8 @@ public class RequestExecutorProxy {
     private final CreditRequestExecutor creditRequestExecutor;
     private Map<Method, Map<String, RequestExecutor>> requestExecutorMap;
 
-    public RequestExecutorProxy(BalanceRequestExecutor balanceRequestExecutor, DebitRequestExecutor debitRequestExecutor, CreditRequestExecutor creditRequestExecutor) {
+    public RequestExecutorProxy(BalanceRequestExecutor balanceRequestExecutor, DebitRequestExecutor debitRequestExecutor,
+                                CreditRequestExecutor creditRequestExecutor) {
         this.balanceRequestExecutor = balanceRequestExecutor;
         this.debitRequestExecutor = debitRequestExecutor;
         this.creditRequestExecutor = creditRequestExecutor;
@@ -46,11 +48,14 @@ public class RequestExecutorProxy {
 
 
     public HttpResponse executeRequest(Method method, String url, HttpRequest httpRequest) throws UnknownEndpointException {
+        log.info("Getting executor for method {} and url {}", method, url);
         Map<String, RequestExecutor> executorsByMethod = requestExecutorMap.get(method);
         Optional<RequestExecutor> requestExecutor =  executorsByMethod.entrySet().stream()
                 .filter(entry -> url.matches(entry.getKey()))
                 .map(Map.Entry::getValue)
                 .findFirst();
-        return requestExecutor.orElseThrow(UnknownEndpointException::new).execute(httpRequest);
+        return requestExecutor.orElseThrow(()->
+                new UnknownEndpointException("Endpoint with method ["+method+"] and url ["+ url + "] was not defined"))
+                .execute(httpRequest);
     }
 }

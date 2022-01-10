@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.BalanceController;
 import controller.CreditController;
 import controller.DebitController;
+import lombok.extern.slf4j.Slf4j;
 import model.executors.BalanceRequestExecutor;
 import model.executors.CreditRequestExecutor;
 import model.executors.DebitRequestExecutor;
@@ -22,7 +23,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
+@Slf4j
 public class BeanContext {
     private final static Map<Class, Object> beans = new HashMap<>();
     private final static String DATABASE_PASSWORD = "postgres";
@@ -35,8 +36,10 @@ public class BeanContext {
     public final static String IN_MEMORY_PROFILE = "memory";
 
     public void initializeInMemoryContext() {
+        log.info("Initializing in memory context");
         WalletRepository walletRepository = getInMemoryWalletRepository();
         getBalanceController(walletRepository);
+        log.info("Finished initializing in memory context");
     }
 
     public Properties loadProperties() {
@@ -45,7 +48,7 @@ public class BeanContext {
             properties.load(input);
             beans.put(Properties.class, properties);
         } catch (IOException e) {
-            e.printStackTrace();//TODO handle
+            log.error("Error while reading application.properties", e);
         }
         return loadDefaultProperties();
     }

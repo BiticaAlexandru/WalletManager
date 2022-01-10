@@ -34,8 +34,8 @@ public class DatabaseWalletRepository implements WalletRepository {
             ResultSet resultSet = getRequest.executeQuery();
             WalletDTO walletDTO = parseResultSet(resultSet);
             return Optional.ofNullable(walletDTO);
-        } catch (SQLException throwables) {
-            throw new DatabaseException(throwables);
+        } catch (SQLException exception) {
+            throw new DatabaseException("Error while getting the wallet for " + id, exception);
         }
     }
 
@@ -60,7 +60,7 @@ public class DatabaseWalletRepository implements WalletRepository {
             createRequest.setInt(5, currentVersion);
             createRequest.execute();
         } catch (SQLException exception) {
-            throw new DatabaseException(exception);
+            throw new DatabaseException("Error while updating wallet for " + id, exception);
         }
     }
 
@@ -70,7 +70,7 @@ public class DatabaseWalletRepository implements WalletRepository {
             createRequest.setString(1, id);
             createRequest.execute();
         } catch (SQLException exception) {
-            throw new DatabaseException(exception);
+            throw new DatabaseException("Error while creating a new wallet for " + id, exception);
         }
         return new WalletDTO(EMPTY_TRANSACTION_ID, FIRST_VERSION, NO_COINS);
     }
@@ -86,7 +86,7 @@ public class DatabaseWalletRepository implements WalletRepository {
             }
             return Optional.ofNullable(transactionId);
         } catch (SQLException exception) {
-            throw new DatabaseException(exception);//TODO HANDLE
+            throw new DatabaseException("Error while getting last transaction for: " + id, exception);
         }
     }
 }

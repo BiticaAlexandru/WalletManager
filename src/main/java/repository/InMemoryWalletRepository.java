@@ -24,7 +24,11 @@ public class InMemoryWalletRepository implements WalletRepository {
     @Override
     public void updateWallet(String id, WalletDTO walletDTO) {
         if (walletRepository.containsKey(id)) {
-            walletRepository.put(id, walletDTO);
+            WalletDTO currentWalletDTO = walletRepository.get(id);
+            long currentVersion = currentWalletDTO.getVersion();
+            if(walletDTO.getVersion() == currentVersion + 1) {
+                walletRepository.put(id, walletDTO);
+            }
         }
     }
 

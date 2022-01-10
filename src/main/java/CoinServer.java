@@ -1,7 +1,8 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import model.executors.RequestExecutorProxy;
 import server.BeanContext;
-import server.BrokenProfileConfiguration;
+import server.UnsupportedProfileConfigurationException;
 import server.Connection;
 import server.RequestParser;
 
@@ -13,10 +14,10 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 public class CoinServer {
 
     public static final int PORT = 8080;
-
 
     public static void main(String[] args) throws IOException, SQLException {
         BeanContext context = new BeanContext();
@@ -29,11 +30,11 @@ public class CoinServer {
             if(profile.equalsIgnoreCase(BeanContext.IN_MEMORY_PROFILE)) {
                 context.initializeInMemoryContext();
             } else {
-                throw new BrokenProfileConfiguration();
+                throw new UnsupportedProfileConfigurationException();
             }
             startServer(context);
-        } catch (BrokenProfileConfiguration brokenProfileConfiguration) {
-            brokenProfileConfiguration.printStackTrace(); //TODO add message
+        } catch (UnsupportedProfileConfigurationException unsupportedProfileConfigurationException) {
+            log.error("Profile was wrongly defined into the properties file. It can be only: official/memory.", unsupportedProfileConfigurationException);
         } finally {
             context.closeContext();
         }
