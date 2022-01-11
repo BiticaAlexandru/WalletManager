@@ -1,0 +1,118 @@
+2022-01-11 01:46:59,059 INFO s.BeanContext [main] Initializing official context
+2022-01-11 01:46:59,372 INFO s.BeanContext [main] Finished initializing official context
+2022-01-11 01:47:01,674 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:47:01,680 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/4a93fd17-34bd-48bd-9f34-1923ca8a1f31
+2022-01-11 01:47:58,418 INFO s.BeanContext [main] Initializing official context
+2022-01-11 01:47:58,709 INFO s.BeanContext [main] Finished initializing official context
+2022-01-11 01:49:18,543 INFO s.BeanContext [main] Initializing official context
+2022-01-11 01:51:35,167 INFO s.BeanContext [main] Initializing official context
+2022-01-11 01:51:41,540 INFO s.BeanContext [main] Initializing in memory context
+2022-01-11 01:51:41,544 INFO s.BeanContext [main] Finished initializing in memory context
+2022-01-11 01:51:46,436 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:51:46,456 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/a0cfddb7-c1a9-4ff9-b94e-19a220c6cdaa
+2022-01-11 01:51:50,117 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:51:50,120 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/a0cfddb7-c1a9-4ff9-b94e-19a220c6cdaa/credit
+2022-01-11 01:51:54,520 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:51:54,522 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/a0cfddb7-c1a9-4ff9-b94e-19a220c6cdaa
+2022-01-11 01:52:03,865 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:52:03,866 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method GET and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42
+2022-01-11 01:52:10,907 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:52:10,909 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42/credit
+2022-01-11 01:52:22,635 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:52:22,637 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42/debit
+2022-01-11 01:52:26,227 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:52:26,228 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42/debit
+2022-01-11 01:52:29,451 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:52:29,452 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42/debit
+2022-01-11 01:52:32,752 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:52:32,753 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42
+2022-01-11 01:52:38,360 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:52:38,362 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/14aa1139-ed5a-4334-a07b-30d817309e42/credit
+2022-01-11 01:53:12,120 INFO s.BeanContext [main] Initializing in memory context
+2022-01-11 01:53:12,125 INFO s.BeanContext [main] Finished initializing in memory context
+2022-01-11 01:53:18,554 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:53:18,561 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/33d4cc0e-0f4c-464c-ad0a-092c9b1c7503
+2022-01-11 01:53:21,096 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:53:21,098 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/33d4cc0e-0f4c-464c-ad0a-092c9b1c7503/credit
+2022-01-11 01:53:24,229 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 01:53:24,229 INFO m.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/33d4cc0e-0f4c-464c-ad0a-092c9b1c7503
+2022-01-11 01:53:31,642 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 01:53:31,644 INFO m.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/33d4cc0e-0f4c-464c-ad0a-092c9b1c7503/credit
+2022-01-11 02:02:39,519 INFO s.BeanContext [main] Initializing in memory context
+2022-01-11 02:02:39,534 INFO s.BeanContext [main] Finished initializing in memory context
+2022-01-11 02:03:04,247 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:03:04,263 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/7cb25ccb-d12d-4d81-91ca-601de5f4d154
+2022-01-11 02:03:11,688 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:03:11,691 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method GET and url /wallets/7cb25ccb-d12d-4d81-91ca-601de5f4d154
+2022-01-11 02:03:15,677 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:03:15,682 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/7cb25ccb-d12d-4d81-91ca-601de5f4d154/credit
+2022-01-11 02:04:40,726 INFO s.BeanContext [main] Initializing in memory context
+2022-01-11 02:04:40,744 INFO s.BeanContext [main] Finished initializing in memory context
+2022-01-11 02:05:15,963 INFO s.BeanContext [main] Initializing in memory context
+2022-01-11 02:05:16,001 INFO s.BeanContext [main] Finished initializing in memory context
+2022-01-11 02:05:25,052 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:05:25,126 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9
+2022-01-11 02:05:29,030 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:05:29,036 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9/credit
+2022-01-11 02:05:34,933 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:05:34,935 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9
+2022-01-11 02:05:39,113 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:05:39,117 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9/credit
+2022-01-11 02:06:18,000 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:06:18,007 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9/debit
+2022-01-11 02:06:24,517 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:06:24,520 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9/debit
+2022-01-11 02:06:27,095 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:06:27,097 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9/debit
+2022-01-11 02:06:29,330 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:06:29,334 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method GET and url /wallets/24dbb228-f0fd-4df4-bb1c-cfb3f660e2d9
+2022-01-11 02:06:47,903 INFO s.BeanContext [main] Initializing in memory context
+2022-01-11 02:06:47,918 INFO s.BeanContext [main] Finished initializing in memory context
+2022-01-11 02:07:42,732 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:07:42,769 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/863ed07f-9908-4b2b-93f9-1b97adb1bf50
+2022-01-11 02:08:41,092 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:08:41,093 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/863ed07f-9908-4b2b-93f9-1b97adb1bf50/credit
+2022-01-11 02:09:12,000 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/863ed07f-9908-4b2b-93f9-1b97adb1bf50
+2022-01-11 02:09:12,001 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:09:15,210 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:09:15,212 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/863ed07f-9908-4b2b-93f9-1b97adb1bf50/credit
+2022-01-11 02:09:41,160 INFO s.BeanContext [main] Initializing official context
+2022-01-11 02:09:41,337 INFO s.BeanContext [main] Finished initializing official context
+2022-01-11 02:09:49,463 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:09:49,473 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7
+2022-01-11 02:09:51,471 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:09:51,472 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7/credit
+2022-01-11 02:09:54,300 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:09:54,303 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7
+2022-01-11 02:09:55,992 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:09:55,996 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7/credit
+2022-01-11 02:09:58,667 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:09:58,668 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7/debit
+2022-01-11 02:10:00,528 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:10:00,529 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method POST and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7/debit
+2022-01-11 02:10:02,879 WARN s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:10:02,880 INFO e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7/debit
+2022-01-11 02:10:05,626 WARN s.Connection [pool-2-thread-2] An empty request occurred
+2022-01-11 02:10:05,627 INFO e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method GET and url /wallets/775117c2-cef2-49fe-b209-0abf6961f9e7
+2022-01-11 02:14:38,283 INFO c.a.c.BeanContext [main] Initializing official context
+2022-01-11 02:14:38,434 INFO c.a.c.BeanContext [main] Finished initializing official context
+2022-01-11 02:14:45,664 WARN c.a.s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:14:45,676 INFO c.a.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/b59671ce-64e7-4f10-814b-c869e65f9353
+2022-01-11 02:17:26,080 INFO c.a.c.BeanContext [main] Initializing official context
+2022-01-11 02:17:26,271 INFO c.a.c.BeanContext [main] Finished initializing official context
+2022-01-11 02:17:29,272 WARN c.a.s.Connection [pool-2-thread-1] An empty request occurred
+2022-01-11 02:17:29,284 INFO c.a.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/8097bef0-8d4b-4be8-80cf-2bdb8836fb5d
+2022-01-11 02:25:03,362 INFO c.a.c.BeanContext [main] Initializing official context
+2022-01-11 02:25:03,494 INFO c.a.c.BeanContext [main] Finished initializing official context
+2022-01-11 02:28:49,524 INFO c.a.c.BeanContext [main] Initializing official context
+2022-01-11 02:28:49,767 INFO c.a.c.BeanContext [main] Finished initializing official context
+2022-01-11 02:28:54,262 WARN c.a.s.Session [pool-2-thread-1] An empty request occurred
+2022-01-11 02:28:54,274 INFO c.a.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method GET and url /wallets/8097bef0-8d4b-4be8-80cf-2bdb8836fb5d
+2022-01-11 02:29:05,690 WARN c.a.s.Session [pool-2-thread-2] An empty request occurred
+2022-01-11 02:29:05,691 INFO c.a.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method GET and url /wallets/7b4ba3c8-dd3d-42a8-9f53-cb64ae32865c
+2022-01-11 02:29:08,497 WARN c.a.s.Session [pool-2-thread-1] An empty request occurred
+2022-01-11 02:29:08,500 INFO c.a.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/7b4ba3c8-dd3d-42a8-9f53-cb64ae32865c/credit
+2022-01-11 02:29:11,018 WARN c.a.s.Session [pool-2-thread-2] An empty request occurred
+2022-01-11 02:29:11,018 INFO c.a.e.RequestExecutorProxy [pool-2-thread-1] Getting executor for method GET and url /wallets/7b4ba3c8-dd3d-42a8-9f53-cb64ae32865c
+2022-01-11 02:29:17,684 WARN c.a.s.Session [pool-2-thread-1] An empty request occurred
+2022-01-11 02:29:17,685 INFO c.a.e.RequestExecutorProxy [pool-2-thread-2] Getting executor for method POST and url /wallets/7b4ba3c8-dd3d-42a8-9f53-cb64ae32865c/credit

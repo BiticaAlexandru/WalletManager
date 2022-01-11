@@ -34,7 +34,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>CoinServer</mainClass>
+                    <mainClass>com.abitica.WalletManager</mainClass>
                 </configuration>
             </plugin>
         </plugins>
