@@ -6,12 +6,12 @@ public class Transaction {
     @JsonProperty
     private String transactionId;
     @JsonProperty
-    private Long coins;
+    private Double coins;
 
     public Transaction() {
     }
 
-    public Transaction(String transactionId, Long coins) {
+    public Transaction(String transactionId, Double coins) {
         this.transactionId = transactionId;
         this.coins = coins;
     }
@@ -24,11 +24,11 @@ public class Transaction {
         this.transactionId = transactionId;
     }
 
-    public Long getCoins() {
+    public double getCoins() {
         return coins;
     }
 
-    public void setCoins(Long coins) {
+    public void setCoins(double coins) {
         this.coins = coins;
     }
 }

@@ -2,7 +2,9 @@ package com.abitica.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 public class WalletDTO {
     @JsonProperty
     private String transactionId;
